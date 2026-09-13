@@ -1,13 +1,27 @@
-import Subjects from "./components/subjects";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App(){
-  return(
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Students from "./pages/Students";
+import StudentDetails from "./pages/StudentsDetails";
 
-      <div>
-        <Subjects schedcode="DCIT26" NameofSubject="APPDEV" ClassSchedule="202612867"/>
-    </div>
+import "./App.css";
 
-  )
+function App() {
+  return (
+    <BrowserRouter>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/students" element={<Students />} />
+        <Route
+          path="/students/:id"
+          element={<StudentDetails />}
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App; 
+export default App;
